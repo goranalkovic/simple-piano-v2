@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full h-full">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
+
+  <title>Simple piano</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel='stylesheet' href='global.css'>
+  <link rel='manifest' href='manifest.json'>
+  <link rel='icon' type='image/png' href='favicon.png'>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    @import url('https://rsms.me/inter/inter.css');
+  </style>
+</head>
+
+<body class="w-full h-full text-gray-900 transition-colors bg-white dark:bg-gray-800 dark:text-white">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <script type="module" src="/_dist_/index.js"></script>
+
+  <script defer>
+    if ("serviceWorker" in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log("[PWA Builder] active service worker found, no need to register");
+      } else {
+        // Register the service worker
+        navigator.serviceWorker
+          .register("pwabuilder-sw.js", {
+            scope: "./"
+          })
+          .then(function (reg) {
+            console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+          });
+      }
+    }
+  </script>
+</body>
+
+</html>
